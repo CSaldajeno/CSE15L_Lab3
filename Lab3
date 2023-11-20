@@ -39,7 +39,7 @@ public void testReverseInPlace3() {
 ```
 ___
 ***Symptom***
-![image1](symptom_lab3.png)
+![Image1](symptom_lab3.png)
 ___
 ***Bug fixed***
 ```
