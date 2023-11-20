@@ -4,19 +4,6 @@ ___
 
 ### Part A
 
-
-### Part B
-
-***Bug from ArrayExamples.java***
-
-```
-// Changes the input array to be in reversed order
-static void reverseInPlace(int[] arr) {
-  for(int i = 0; i < arr.length; i += 1) {
-    arr[i] = arr[arr.length - i - 1];
-  }
-}
-```
 ***Failure inducing input***
 ```
 @Test 
@@ -36,8 +23,18 @@ public void testReverseInPlace3() {
 }
 ```
 ***Symptom***
-![Image1](symptom_lab3.png)
-***Bug fixed***
+![Image1](symptom.png)
+***Bug Before***
+
+```
+// Changes the input array to be in reversed order
+static void reverseInPlace(int[] arr) {
+  for(int i = 0; i < arr.length; i += 1) {
+    arr[i] = arr[arr.length - i - 1];
+  }
+}
+```
+***Bug After***
 ```
 // Changes the input array to be in reversed order
 static void reverseInPlace(int[] arr) {
@@ -49,5 +46,9 @@ static void reverseInPlace(int[] arr) {
 }return newArray; 
 }
 ```
-* before and after code change required to fix it as 2 code blocks
-* describe why the fix addresses the issue
+***Describe why the fix addresses the issue***
+The orignal code was attempting to reverse the array in place, but didn't have a way to preserve the intial values. This resulted in the code overwriting each element with its corresponding element from the opposite end of the array. With this updated code, we reverse the input array in place by swapping elements, preserving the original values during the reversal process.
+
+___
+### Part B
+
