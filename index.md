@@ -17,7 +17,6 @@ static void reverseInPlace(int[] arr) {
   }
 }
 ```
-___
 ***Failure inducing input***
 ```
 @Test 
@@ -27,7 +26,6 @@ public void testReverseInPlace2() {
   assertArrayEquals(new int[]{4,3,2,1}, input1);
 	}
 ```
-___
 ***input that doesn't induce a failure***
 ```
 @Test 
@@ -37,10 +35,8 @@ public void testReverseInPlace3() {
   assertArrayEquals(new int[]{0}, input1);
 }
 ```
-___
 ***Symptom***
 ![Image1](symptom_lab3.png)
-___
 ***Bug fixed***
 ```
 // Changes the input array to be in reversed order
