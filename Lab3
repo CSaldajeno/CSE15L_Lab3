@@ -7,4 +7,51 @@ ___
 
 ### Part B
 
+***Bug from ArrayExamples.java***
 
+```
+// Changes the input array to be in reversed order
+static void reverseInPlace(int[] arr) {
+  for(int i = 0; i < arr.length; i += 1) {
+    arr[i] = arr[arr.length - i - 1];
+  }
+}
+```
+___
+***Failure inducing input***
+```
+@Test 
+public void testReverseInPlace2() {
+  int[] input1 = {1,2,3,4 };
+  ArrayExamples.reverseInPlace(input1);
+  assertArrayEquals(new int[]{4,3,2,1}, input1);
+	}
+```
+___
+***input that doesn't induce a failure***
+```
+@Test 
+public void testReverseInPlace3() {
+  int[] input1 = {0};
+  ArrayExamples.reverseInPlace(input1);
+  assertArrayEquals(new int[]{0}, input1);
+}
+```
+___
+***Symptom***
+
+___
+***Bug fixed***
+```
+// Changes the input array to be in reversed order
+static void reverseInPlace(int[] arr) {
+  for(int i = 0; i < arr.length/2; i += 1) {
+    int temp = arr[i]; 
+    arr[i] = arr[arr.length - i - 1];
+    arr[arr.length -i-1] = temp; 
+  }
+}return newArray; 
+}
+```
+* before and after code change required to fix it as 2 code blocks
+* describe why the fix addresses the issue
